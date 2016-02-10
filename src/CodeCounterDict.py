@@ -25,7 +25,7 @@ def findFiles(filetype,minbytes):
     filelist = {}
     for path,_folders,files in os.walk('.'):
         for file in files:
-            if file.endswith(filetype) and os.path.getsize(os.path.join(path, file)) >= minbytes:
+            if file.endswith(filetype) and os.path.getsize(os.path.join(path, file)) <= minbytes:
                 filelist.update({os.path.join(path, file):{'valid':True}})
                 '''
                 sinnlos, weil die kommenden .update den Inhalt des unterliegenden Dicts loescht und neu setzt...

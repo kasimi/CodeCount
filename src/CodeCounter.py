@@ -26,7 +26,7 @@ def findFiles(filetype,minbytes):
     filelist = []
     for path,_folders,files in os.walk('.'):
         for file in files:
-            if file.endswith(filetype) and os.path.getsize(os.path.join(path, file)) >= minbytes:
+            if file.endswith(filetype) and os.path.getsize(os.path.join(path, file)) <= minbytes:
                 filelist.append(os.path.join(path, file))
     gehtbesser = countLines(filelist)
     printStats(gehtbesser[0], gehtbesser[1])
